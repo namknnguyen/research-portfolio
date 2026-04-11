@@ -37,14 +37,26 @@
             padding: 40px 0;
             border-bottom: 1px solid #eee;
         }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
         h1 {
             font-size: 1.8em;
             font-weight: 600;
             margin-bottom: 8px;
         }
-        .subtitle {
+        .ascii-star {
+            font-family: monospace;
+            font-size: 10px;
+            line-height: 1.1;
+            color: #333;
+            white-space: pre;
+        }
+        .tagline {
             color: #666;
-            font-size: 1em;
+            font-size: 0.95em;
         }
         section {
             padding: 30px 0;
@@ -72,7 +84,7 @@
             margin-bottom: 15px;
             color: #444;
         }
-        .project, .post {
+        .project {
             margin-bottom: 25px;
         }
         a {
@@ -104,14 +116,37 @@
     </nav>
 
     <header>
-        <h1>Nam Nguyen</h1>
-        <p class="subtitle">Incoming student at University of Sydney</p>
+        <div class="header-content">
+            <div>
+                <h1>Nam Nguyen</h1>
+                <p class="tagline">17 | ai research @ dartmouth | stanford ss'25 | gt 20u20'</p>
+            </div>
+            <pre class="ascii-star">
+                  .
+              _-``    `-_
+            .`  /   ,   \   `.
+           /   /         \   \
+          /  /           \  \
+         /  /             \  \
+        /  /               \  \
+       /  /                 \  \
+      (  (        O         )  )
+       \  \                 /  /
+        \  \               /  /
+         \  \             /  /
+          \  \           /  /
+           \  \         /  /
+            `. \       / .'
+              `-_     _-'
+                  ---
+            </pre>
+        </div>
     </header>
 
     <section>
         <h2>About</h2>
-        <p>I am a research engineer with research interests broadly in computational cognition, with emphasis on application to advancing brain models, AI, and robotics. Currently, I'm doing research with Dartmouth's MBC lab as an incoming student at the University of Sydney.</p>
-        <p>Outside of research, I'm a varsity volleyball player, I love to cook, and I have a dog named Mango.</p>
+        <p>I am a research engineer with research interests broadly in computational cognition, with emphasis on application to advancing brain models, AI, and robotics. Currently, I'm doing research with Dartmouth's MBC lab and am an incoming student at the University of Sydney.</p>
+        <p>Outside of research, I'm a varsity volleyball player, I love to cook, and I have a dog named Mango!</p>
     </section>
 
     <section>
