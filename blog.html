@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Portfolio</title>
+    <title>Research Blog</title>
     <style>
         * {
             margin: 0;
@@ -40,11 +40,6 @@
         h1 {
             font-size: 1.8em;
             font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1em;
         }
         section {
             padding: 30px 0;
@@ -58,22 +53,24 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        .post {
+            margin-bottom: 35px;
+        }
+        .post:last-child {
+            margin-bottom: 0;
+        }
         h3 {
-            font-size: 1em;
+            font-size: 1.1em;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         .date {
             color: #888;
             font-size: 0.85em;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         p {
-            margin-bottom: 15px;
             color: #444;
-        }
-        .project, .post {
-            margin-bottom: 25px;
         }
         a {
             color: #0066cc;
@@ -81,14 +78,6 @@
         }
         a:hover {
             text-decoration: underline;
-        }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        li {
-            margin-bottom: 8px;
-            color: #444;
         }
         footer {
             padding: 30px 0;
@@ -100,47 +89,39 @@
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="blog.html">Research Blog</a>
+        <a href="blog.html" class="active">Research Blog</a>
     </nav>
 
     <header>
-        <h1>Nam Nguyen</h1>
-        <p class="subtitle">Incoming student at University of Sydney</p>
+        <h1>Research Blog</h1>
     </header>
 
     <section>
-        <h2>About</h2>
-        <p>I am a research engineer with research interests broadly in computational cognition, with emphasis on application to advancing brain models, AI, and robotics. Currently, I'm doing research with Dartmouth's MBC lab as an incoming student at the University of Sydney.</p>
-        <p>Outside of research, I'm a varsity volleyball player, I love to cook, and I have a dog named Mango.</p>
-    </section>
+        <h2>Posts</h2>
+        
+        <div class="post">
+            <h3>Co-authored Paper on LLM Working Memory</h3>
+            <p class="date">April 2026</p>
+            <p>Just finished a paper with Dartmouth's MBC lab on LLM working memory and intelligence. Excited to share more details once it's published.</p>
+        </div>
 
-    <section>
-        <h2>Research</h2>
-        <div class="project">
-            <h3>AI/CogSci @ Dartmouth</h3>
-            <p class="date">Current</p>
-            <p>Co-authored paper on LLM working memory and intelligence.</p>
+        <div class="post">
+            <h3>ML for Stroke Prediction</h3>
+            <p class="date">Stanford</p>
+            <p>Worked on developing machine learning models for stroke prediction. Learned a lot about applying ML to healthcare problems.</p>
         </div>
-        <div class="project">
-            <h3>ML @ Stanford</h3>
-            <p>Developed machine learning models for stroke prediction.</p>
-        </div>
-        <div class="project">
-            <h3>Founder @ Project Persona</h3>
-            <p>LLMs for situational language learning.</p>
-        </div>
-        <div class="project">
-            <h3>AI @ VinUni</h3>
-            <p>Investigated medical translation in LLMs.</p>
-        </div>
-    </section>
 
-    <section>
-        <h2>Contact</h2>
-        <ul>
-            <li><a href="https://github.com/namknnguyen">GitHub</a></li>
-            <li><a href="mailto:nam.nguyen@sydney.edu.au">Email</a></li>
-        </ul>
+        <div class="post">
+            <h3>Project Persona - Situational Language Learning</h3>
+            <p class="date">Founder</p>
+            <p>Building LLMs for situational language learning. Exploring how AI can understand context better.</p>
+        </div>
+
+        <div class="post">
+            <h3>Medical Translation in LLMs</h3>
+            <p class="date">VinUni</p>
+            <p>Investigated how LLMs handle medical translation - fascinating edge cases in multilingual medical contexts.</p>
+        </div>
     </section>
 
     <footer>
