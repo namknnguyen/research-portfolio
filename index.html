@@ -47,12 +47,13 @@
             font-weight: 600;
             margin-bottom: 8px;
         }
-        .ascii-star {
+        #sphere {
             font-family: monospace;
-            font-size: 10px;
+            font-size: 9px;
             line-height: 1.1;
             color: #333;
             white-space: pre;
+            min-width: 45ch;
         }
         .tagline {
             color: #666;
@@ -121,25 +122,7 @@
                 <h1>Nam Nguyen</h1>
                 <p class="tagline">17 | ai research @ dartmouth | stanford ss'25 | gt 20u20'</p>
             </div>
-            <pre class="ascii-star">
-                  .
-              _-``    `-_
-            .`  /   ,   \   `.
-           /   /         \   \
-          /  /           \  \
-         /  /             \  \
-        /  /               \  \
-       /  /                 \  \
-      (  (        O         )  )
-       \  \                 /  /
-        \  \               /  /
-         \  \             /  /
-          \  \           /  /
-           \  \         /  /
-            `. \       / .'
-              `-_     _-'
-                  ---
-            </pre>
+            <pre id="sphere"></pre>
         </div>
     </header>
 
@@ -181,5 +164,94 @@
     <footer>
         <p>&copy; 2026 Nam Nguyen</p>
     </footer>
+
+    <script>
+        const sphereEl = document.getElementById('sphere');
+        const width = 45;
+        const height = 20;
+        const radius = 9;
+        const latency = 30;
+        
+        let angleX = 0;
+        let angleY = 0;
+        let angleZ = 0;
+        
+        function rotate(x, y, z, ax, ay, az) {
+            let cy = Math.cos(ay), sy = Math.sin(ay);
+            let cx = Math.cos(ax), sx = Math.sin(ax);
+            let cz = Math.cos(az), sz = Math.sin(az);
+            
+            let y1 = y * cy - z * sy;
+            let z1 = y * sy + z * cy;
+            let x1 = x * cx - z1 * sx;
+            let z2 = x * sx + z1 * cx;
+            let x2 = x1 * cz - y1 * sz;
+            let y2 = x1 * sz + y1 * cz;
+            
+            return [x2, y2, z2];
+        }
+        
+        function render() {
+            let lines = [];
+            for (let i = 0; i < height; i++) {
+                lines.push(new Array(width).fill(' '));
+            }
+            
+            let points = [];
+            let lat = Math.PI, lon;
+            for (let i = 0; i < latency; i++) {
+                lon = 2 * Math.PI * i / latency;
+                let x = radius * Math.sin(lat) * Math.cos(lon);
+                let y = radius * Math.cos(lat);
+                let z = radius * Math.sin(lat) * Math.sin(lon);
+                points.push([x, y, z]);
+                lat -= Math.PI / latency;
+            }
+            
+            let rings = [];
+            lat = -Math.PI/2;
+            for (let i = 0; i < latency; i++) {
+                lon = 2 * Math.PI * i / latency;
+                let x = radius * Math.cos(lat) * Math.cos(lon);
+                let y = radius * Math.sin(lat);
+                let z = radius * Math.cos(lat) * Math.sin(lon);
+                rings.push([x, y, z]);
+            }
+            
+            let allPoints = [...points, ...rings];
+            
+            for (let p of allPoints) {
+                let [x, y, z] = rotate(p[0], p[1], p[2], angleX, angleY, angleZ);
+                
+                let screenX = Math.floor(x + width / 2);
+                let screenY = Math.floor(y + height / 2);
+                
+                if (screenX >= 0 && screenX < width && screenY >= 0 && screenY < height) {
+                    let depth = z;
+                    let char = 'o';
+                    if (depth < -3) char = '.';
+                    else if (depth < 0) char = '°';
+                    else if (depth < 3) char = 'O';
+                    else char = '@';
+                    
+                    if (screenX === 0 || screenX === width-1 || screenY === 0 || screenY === height-1) {
+                        lines[screenY][screenX] = '*';
+                    } else {
+                        lines[screenY][screenX] = char;
+                    }
+                }
+            }
+            
+            sphereEl.textContent = lines.map(l => l.join('')).join('\n');
+            
+            angleX += 0.02;
+            angleY += 0.03;
+            angleZ += 0.01;
+            
+            requestAnimationFrame(render);
+        }
+        
+        render();
+    </script>
 </body>
 </html>
