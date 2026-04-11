@@ -3,65 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>~*~ My Portfolio ~*~</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-    header { text-align: center; padding: 3rem 0; border-bottom: 1px solid #eee; }
-    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .subtitle { color: #666; font-size: 1.1rem; }
-    section { padding: 2rem 0; }
-    h2 { font-size: 1.5rem; margin-bottom: 1rem; }
-    .project { margin-bottom: 1.5rem; }
-    .project h3 { font-size: 1.1rem; }
-    .project a { color: #0066cc; text-decoration: none; }
-    .project a:hover { text-decoration: underline; }
-    .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill { background: #f0f0f0; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.9rem; }
-    footer { text-align: center; padding: 2rem 0; color: #666; font-size: 0.9rem; border-top: 1px solid #eee; }
-    footer a { color: #0066cc; text-decoration: none; }
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #f0f0f8;
+      background-image: 
+        linear-gradient(90deg, transparent 50%, rgba(200,200,255,.3) 50%),
+        linear-gradient(rgba(200,200,255,.3) 50%, transparent 50%);
+      background-size: 4px 4px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .window {
+      background: #cceeff;
+      border: 3px outset #fff;
+      padding: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .titlebar {
+      background: linear-gradient(90deg, #000080, #1084d0);
+      color: #fff;
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .titlebar::before { content: "☺"; }
+    .content {
+      background: #fff;
+      padding: 1.5rem;
+      border: 2px inset #999;
+    }
+    header {
+      text-align: center;
+      padding: 1rem 0;
+      border-bottom: 2px dotted #666;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ff00ff;
+      text-shadow: 2px 2px #00ffff;
+      margin-bottom: 0.25rem;
+    }
+    .subtitle {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #000080;
+      border-bottom: 2px solid #00ff00;
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+    section { margin-bottom: 1.5rem; }
+    .project {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      background: #ffffcc;
+      border: 1px solid #cccc00;
+    }
+    .project h3 {
+      font-size: 1rem;
+      color: #008000;
+      margin-bottom: 0.25rem;
+    }
+    .project a {
+      color: #ff00ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .project a:hover {
+      color: #00ffff;
+      background: #000080;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill {
+      background: linear-gradient(180deg, #ffcccc, #ff9999);
+      border: 2px outset #fff;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.85rem;
+      color: #cc0000;
+    }
+    .link-box {
+      background: #e0e0e0;
+      border: 2px inset #fff;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+    }
+    .link-box a {
+      color: #0000ff;
+      text-decoration: none;
+    }
+    .link-box a:hover {
+      color: #ff0000;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+      font-size: 0.8rem;
+      border-top: 3px double #999;
+    }
+    .blink {
+      animation: blinker 1s linear infinite;
+    }
+    @keyframes blinker {
+      50% { opacity: 0; }
+    }
+    hr {
+      border: none;
+      border-top: 2px dashed #ff00ff;
+      margin: 1rem 0;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Your Name</h1>
-      <p class="subtitle">Your tagline or role</p>
-    </header>
+    <div class="window">
+      <div class="titlebar">✉ Welcome to my page!!</div>
+      <div class="content">
+        <header>
+          <h1>★ Your Name ★</h1>
+          <p class="subtitle">~*~ web designer & developer ~*~</p>
+        </header>
 
-    <section>
-      <h2>About</h2>
-      <p>Write a brief description about yourself here.</p>
-    </section>
+        <section>
+          <h2>>> About Me</h2>
+          <p>Hi!! Welcome to my corner of the internet ♪ I'm a creative developer who loves making cool stuff for the web. Feel free to look around!!</p>
+        </section>
 
-    <section>
-      <h2>Skills</h2>
-      <div class="skills">
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
+        <hr>
+
+        <section>
+          <h2>>> What I Do</h2>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Design</span>
+          </div>
+        </section>
+
+        <hr>
+
+        <section>
+          <h2>>> Cool Projects</h2>
+          <div class="project">
+            <h3>✦ Project One</h3>
+            <p>Something I made recently~ check it out!</p>
+            <a href="#">[view project]</a>
+          </div>
+          <div class="project">
+            <h3>✦ Project Two</h3>
+            <p>Another thing I built!!</p>
+            <a href="#">[view project]</a>
+          </div>
+        </section>
+
+        <hr>
+
+        <section>
+          <h2>>> Say Hi!</h2>
+          <div class="link-box">
+            <p>✉ <a href="mailto:your@email.com">your@email.com</a></p>
+            <p>⚡ <a href="https://github.com/yourusername">github.com/yourusername</a></p>
+            <p>🐦 <a href="#">twitter.com/yourusername</a></p>
+          </div>
+        </section>
+
+        <footer>
+          <p class="blink">°º¤°•º° Thanks for visiting! °•º¤°º°</p>
+          <p>© 2026 ★ Made with &hearts; ★</p>
+        </footer>
       </div>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Project Name</h3>
-        <p>Project description.</p>
-        <a href="#">View Project →</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>Email: your@email.com</p>
-      <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
-    </section>
-
-    <footer>
-      <p>© 2026 Your Name</p>
-    </footer>
+    </div>
   </div>
 </body>
 </html>
